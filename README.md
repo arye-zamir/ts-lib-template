@@ -1,6 +1,6 @@
-# ts-types-lib-template
+# typescript-library-template
 
-A template for building TypeScript types-only libraries. This project is designed to be a starting point for creating libraries that provide only type definitions without any runtime code, making it ideal for type safety in larger TypeScript projects.
+A template for building TypeScript libraries. developers create reusable libraries with clear runtime exports and type safety in larger TypeScript projects.
 
 ## Getting Started
 
@@ -14,14 +14,14 @@ A template for building TypeScript types-only libraries. This project is designe
 Clone the repository and install dependencies:
 
 ```bash
-$ git clone https://github.com/yourusername/ts-types-lib-template.git
-$ cd ts-types-lib-template
+$ git clone https://github.com/arye-zamir/ts-lib-template.git
+$ cd ts-lib-template
 $ pnpm install
 ```
 
 ### Development
 
-To develop and extend the library, add or modify the types in the src directory.
+To develop and extend the library, add or modify the files in the src directory.
 
 ### Build
 
