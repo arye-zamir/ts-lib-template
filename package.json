@@ -1,11 +1,24 @@
 {
-  "name": "my-types-library",
+  "name": "typescript-library-template",
   "version": "1.0.0",
-  "main": "",
-  "types": "dist/index.d.ts",
+  "main": "dist/index.cjs.js",
+  "module": "dist/index.esm.js",
+  "types": "dist/types/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.esm.js",
+      "require": "./dist/index.cjs.js",
+      "types": "./dist/types/index.d.ts"
+    },
+    "./types": {
+      "types": "./dist/types/index.d.ts"
+    }
+  },
   "scripts": {
     "clean": "node scripts/clean-dist.js",
-    "build": "npm run clean && tsc",
+    "build": "pnpm run clean && rollup --config rollup.config.ts --bundleConfigAsCjs --configPlugin @rollup/plugin-typescript",
+    "build:types": "tsc --emitDeclarationOnly",
+    "build:js": "rollup -c rollup.config.ts --configPlugin ts-node/register",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -17,8 +30,16 @@
     }
   ],
   "license": "ISC",
-  "description": "A template for building TypeScript types-only libraries.",
+  "description": "A template for building TypeScript libraries.",
   "devDependencies": {
+    "@rollup/plugin-commonjs": "^28.0.1",
+    "@rollup/plugin-node-resolve": "^15.3.0",
+    "@rollup/plugin-terser": "^0.4.4",
+    "@rollup/plugin-typescript": "^12.1.1",
+    "@types/node": "^22.10.1",
+    "rollup": "^4.27.4",
+    "ts-node": "^10.9.2",
+    "tslib": "^2.8.1",
     "typescript": "^5.7.2"
   },
   "prettier": {
