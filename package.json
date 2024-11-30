@@ -1,0 +1,28 @@
+{
+  "name": "my-types-library",
+  "version": "1.0.0",
+  "main": "",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "clean": "node scripts/clean-dist.js",
+    "build": "npm run clean && tsc",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Arye Zamir",
+  "maintainers": [
+    {
+      "name": "Arye Zamir",
+      "email": "arye.zamir@gmail.com"
+    }
+  ],
+  "license": "ISC",
+  "description": "A template for building TypeScript types-only libraries.",
+  "devDependencies": {
+    "typescript": "^5.7.2"
+  },
+  "prettier": {
+    "singleQuote": true,
+    "trailingComma": "es5"
+  }
+}
