@@ -1,5 +1,10 @@
 import { describe, it, expect } from 'vitest';
-import { keys, entries, isEmptyObject, deepClone } from '../object.ts';
+import {
+  keys,
+  entries,
+  isEmptyObject,
+  deepClone,
+} from '../../../src/utils/object.ts';
 
 describe('object utilities', () => {
   describe('keys', () => {

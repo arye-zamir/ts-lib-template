@@ -1,5 +1,11 @@
 import { describe, it, expect } from 'vitest';
-import { isEmptyArray, last, first, chunk, unique } from '../array.ts';
+import {
+  isEmptyArray,
+  last,
+  first,
+  chunk,
+  unique,
+} from '../../../src/utils/array.ts';
 
 describe('array utilities', () => {
   describe('isEmptyArray', () => {
