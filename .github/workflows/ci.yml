@@ -39,15 +39,15 @@ jobs:
         run: pnpm run typecheck
 
       - name: Test
-        run: pnpm run test:coverage
+        run: pnpm run test:coverage | tee test-output.txt
 
       - name: Build
         run: pnpm run build
 
-      - name: Upload coverage
-        if: matrix.node-version == '22.x'
-        uses: codecov/codecov-action@v4
-        with:
-          files: ./coverage/coverage-final.json
-          flags: unittests
-          fail_ci_if_error: false
+      - name: Coverage Summary
+        if: matrix.node-version == '22.x' && always()
+        run: |
+          echo "## Coverage Report" >> $GITHUB_STEP_SUMMARY
+          echo '```' >> $GITHUB_STEP_SUMMARY
+          grep -A 20 "Coverage report" test-output.txt | sed 's/\x1b\[[0-9;]*m//g' || echo "Coverage report not found"
+          echo '```' >> $GITHUB_STEP_SUMMARY
