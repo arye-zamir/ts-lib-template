@@ -36,16 +36,6 @@ export type Failure<E> = {
 };
 
 export type Result<T, E = Error> = Success<T> | Failure<E>;
-
-export const success = <T>(value: T): Success<T> => ({
-  success: true,
-  value,
-});
-
-export const failure = <E>(error: E): Failure<E> => ({
-  success: false,
-  error,
-});
 // endregion
 
 // region Branded Types
@@ -58,11 +48,6 @@ export type Brand<T, TBrand extends string> = T & {
 export type UserId = Brand<string, 'UserId'>;
 export type Email = Brand<string, 'Email'>;
 export type PositiveNumber = Brand<number, 'PositiveNumber'>;
-
-export const createUserId = (id: string): UserId => id as UserId;
-export const createEmail = (email: string): Email => email as Email;
-export const createPositiveNumber = (n: number): PositiveNumber | null =>
-  n > 0 ? (n as PositiveNumber) : null;
 // endregion
 
 // region Utility Types

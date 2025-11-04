@@ -4,7 +4,7 @@ import {
   numToString,
   isEmpty,
   capitalize,
-} from '../string.ts';
+} from '../../../src/utils/string.ts';
 
 describe('isNull', () => {
   it('should return true for null values', () => {

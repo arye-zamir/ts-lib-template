@@ -10,6 +10,8 @@ export default defineConfig({
       exclude: [
         'node_modules/**',
         'dist/**',
+        'tests/**',
+        'src/types/**',
         '**/*.config.ts',
         '**/*.d.ts',
         '**/index.ts',
